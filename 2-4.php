@@ -42,3 +42,38 @@ print_r(task_v2($arr, $insert_arr));
 
 
 // 3 вариант реализации этого задания
+
+
+function setArray($arr, $insertArr)
+{
+    $newArr = $arr;
+    for($i = 0; $i < count($insertArr); $i++){
+        $newArr = setField($newArr, $insertArr[$i]);
+    }
+    return $newArr;
+}
+function setField($arr, $field){
+    $resArr = [];
+    $count = count($arr);
+    if ($field > $arr[$count - 1]){
+        $arr[$count] = $field;
+        return $arr;
+    }
+    for($i = 0, $j = 0; $i < $count; $i++, $j++){
+        if ($arr[$i] > $field && $arr[$i - 1] < $field){
+            if ($field != $arr[$i]){
+                $resArr[$j] = $field;
+                $j++;
+            }
+        }
+        $resArr[$j] = $arr[$i];
+    }
+    return $resArr;
+}
+
+$arr = [1, 5, 7, 11, 18, 20, 30, 40, 70];
+$field = [2,5,4,7,32,1,12,48, 80];
+$arr = setArray($arr, $field);
+echo "<pre>";
+print_r($arr);
+echo "</pre>";
