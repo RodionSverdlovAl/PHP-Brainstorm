@@ -39,3 +39,6 @@ function task($arr, $insert_arr){
 $arr = [1,3,4,5,7,11,15,17,18,22,25,26,27,30];
 $insert_arr = [2,5,4,7,32,1,12,48];
 print_r(task_v2($arr, $insert_arr));
+
+
+// 3 вариант реализации этого задания
