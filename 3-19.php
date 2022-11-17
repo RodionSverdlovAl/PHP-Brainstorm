@@ -1,28 +1,29 @@
 <?php
-//В массиве А(N,M) расположить элементы строк в порядке убывания. Вставить в каждую строку
-//заданное число р, не нарушая этот порядок.
 
+function sortRow($row) : array
+{
+    $size = count($row);
 
-function sortRow($row):array{
-    $n = count($row);
-    for ($i = 0; $i<$n; $i++)
-        for ($j = $n-1; $j>$i; $j--)
-            if ($row[$j - 1] < $row[$j])       //если текущий элемент меньше следующего, то
-                {
-                    $tmp = $row[$j - 1];     //сохранить значение текущего элемента;
-                    $row[$j - 1] = $row[$j];    //заменить текущий элемент следующим;
-                    $row[$j] = $tmp;       //заменить следующий элемент текущим.
-                }
+    for ($i = 0; $i < $size; $i++) {
+        for ($j = $size - 1; $j > $i; $j--) {
+            if ($row[$j - 1] < $row[$j]) {
+                $tmp = $row[$j - 1];
+                $row[$j - 1] = $row[$j];
+                $row[$j] = $tmp;
+            }
+        }
+    }
+
     return $row;
 }
 
-function insertItemInRows($arr, $item){
-    $count_of_col = count($arr[0]);
-    $count_or_rows = count($arr);
-    for($row=0; $row<$count_or_rows; $row++){
+function insertItemInRows($arr, $item) : array
+{
+    $countOfRows = count($arr);
+
+    for ($row = 0; $row < $countOfRows; $row++) {
         $arr[$row][] = $item;
         $arr[$row] = sortRow($arr[$row]);
-
     }
 
     return $arr;
