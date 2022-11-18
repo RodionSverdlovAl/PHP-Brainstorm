@@ -21,21 +21,21 @@ function checkSimpleNumber($number) : bool
 
 function deleteRows($arr) : array
 {
-    $count_of_col = count($arr[0]);
-    $count_of_rows = count($arr);
+    $countOfCols = count($arr[0]);
+    $countOfRows = count($arr);
 
-    for ($col= 0; $col < $count_of_col; $col++) {
+    for ($col= 0; $col < $countOfCols; $col++) {
         $check = 0;
-        for ($row = 0; $row < $count_of_rows; $row++) {
+        for ($row = 0; $row < $countOfRows; $row++) {
             $check += checkSimpleNumber($arr[$row][$col]);
         }
-        if ($check == $count_of_rows) {
-            for ($row = 0; $row < $count_of_rows; $row++) {
+        if ($check == $countOfRows) {
+            for ($row = 0; $row < $countOfRows; $row++) {
                 unset($arr[$row][$col]);
             }
         }
     }
-    
+
     return $arr;
 }
 
