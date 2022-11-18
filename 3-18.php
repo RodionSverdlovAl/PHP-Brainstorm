@@ -11,9 +11,9 @@ function swapMaxElementsInDiagonal($matrix) : void
     for ($row = 0; $row < $matrixSize; $row++) {
         for ($col = 0; $col < $matrixSize; $col++) {
             if ($matrix[$row][$col] < 0) {
-                $tmp = $matrix[$row][$row];
-                $matrix[$row][$row] = $matrix[$row][$col];
-                $matrix[$row][$col] = $tmp;
+                $tmp = $matrix[$row];
+                $matrix[$row] = $matrix[$col];
+                $matrix[$col] = $tmp;
             }
         }
     }
@@ -27,7 +27,7 @@ function swapMaxElementsInDiagonal($matrix) : void
 $arr = [
     [-3, 5, 7, 4, 8],
     [2, 5, 3, -6, 3],
-    [1, -2, 1, 6, 1],
+    [1, -2, 1, 6, 1], // этот роу нужно поменять местами с той строкой где этот минимальный колонка
     [6, 9, 0, 1, -4],
     [6, 3,-8, 1, 2]
 ];
